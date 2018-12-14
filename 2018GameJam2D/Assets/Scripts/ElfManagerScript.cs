@@ -24,10 +24,10 @@ public class ElfManagerScript : MonoBehaviour {
 			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
 			RaycastHit hit;
 			if (Physics.Raycast (ray, out hit)) {
-				Debug.Log (hit.collider.gameObject.name);
+				//Debug.Log (hit.collider.gameObject.name);
 				if (hit.collider.tag == "Elf") { //if select ground, set new destination
 					currentElf = GameObject.Find(hit.collider.gameObject.name);
-					print (currentElf.name);
+					//print (currentElf.name);
 				}
 			}
 		}
