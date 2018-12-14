@@ -6,6 +6,7 @@ public class ElfManagerScript : MonoBehaviour {
 
 	public GameObject[] elfList;
 	public GameObject currentElf;
+	public GameObject currentElfGrandParent;
 	public LayerMask ElfCollider;
 
 	// Use this for initialization
@@ -26,9 +27,10 @@ public class ElfManagerScript : MonoBehaviour {
 			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
 			RaycastHit hit;
 			if (Physics.Raycast (ray, out hit,Mathf.Infinity,ElfCollider)) {
-				Debug.Log (hit.collider.gameObject.name);
+				//Debug.Log (hit.collider.gameObject.name);
 				if (hit.collider.tag == "Elf") { //if select ground, set new destination
-					currentElf = GameObject.Find(hit.collider.gameObject.name);
+					currentElf = hit.collider.gameObject;
+					//GameObject.Find(hit.collider.gameObject.transform.name);
 					//print (currentElf.name);
 				}
 			}
@@ -36,7 +38,7 @@ public class ElfManagerScript : MonoBehaviour {
 
 		if (currentElf != null) {
 			for (int loop = 0; loop < elfList.Length; loop++) {
-				if (elfList [loop].name == currentElf.name) {
+				if (elfList [loop].transform.parent.parent.name == currentElf.transform.parent.parent.name) {
 					elfList [loop].GetComponent<ElfColliderClick>().agent.thisSelected();
 					//elfList [loop].GetComponent<Agent> ().thisSelected ();
 				} else {
