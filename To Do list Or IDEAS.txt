@@ -7,9 +7,9 @@ Boxes
 
 Stations
 =======
-Ribbons
 Sowing 
 Craft 
+Wrapping
 
 Time power ups
 ==============
