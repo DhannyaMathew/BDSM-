@@ -18,6 +18,7 @@ public class Elf : MonoBehaviour {
 		private Queue<Vector3> destinationQueue; //Queue with all the destinations 
 		private Vector3 currentDestination;
 		private bool starting; //Used in the case of the first movement
+		//make a bool for working 
 
 		
 		void Start(){
@@ -44,15 +45,7 @@ public class Elf : MonoBehaviour {
 		} else {
 			moving = false;
 		}
-
-
-		/*if (Vector3.Distance (transform.position, currentDestination) > 2) {
-			moving = true;
-			print (Vector3.Distance (transform.position, currentDestination));
-		}
-		else{
-			moving = false;
-		}*/
+			
 			
 				/*if ((Horizontal < 0.15f && Horizontal > -0.15f) || pushing) {
 					moving = false;
@@ -74,7 +67,7 @@ public class Elf : MonoBehaviour {
 				starting = false;
 			}
 
-			if (Vector3.Distance (transform.position, currentDestination) <= 1.6 && destinationQueue.Count != 0) {
+			if (Vector3.Distance (transform.position, currentDestination) <= 1.6 && destinationQueue.Count != 0) { //Add !working here condition ye git
 				dequeueDestination ();
 			}
 		}
@@ -116,8 +109,9 @@ public class Elf : MonoBehaviour {
 		currentDestination = destinationQueue.Dequeue ();
 		myAgent.GetComponent<Agent> ().goNextDestination (currentDestination);
 	}
-		
 
+
+	//Make a delay thing ye boi
 
 
 	}

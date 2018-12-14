@@ -339,10 +339,9 @@ GameObject:
   - component: {fileID: 425432583}
   - component: {fileID: 425432582}
   - component: {fileID: 425432581}
-  - component: {fileID: 425432580}
   m_Layer: 0
   m_Name: ElfCollider3D
-  m_TagString: Elf
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -360,19 +359,6 @@ Transform:
   m_Father: {fileID: 887745707}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &425432580
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 425432578}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be3a010fdaf8fe849aec4e22c9cb14bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myElf: {fileID: 887745704}
-  selected: 1
 --- !u!65 &425432581
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -880,9 +866,10 @@ GameObject:
   - component: {fileID: 865535392}
   - component: {fileID: 865535391}
   - component: {fileID: 865535394}
+  - component: {fileID: 865535395}
   m_Layer: 0
   m_Name: Agent
-  m_TagString: Untagged
+  m_TagString: Elf
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -975,6 +962,19 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &865535395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 865535389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be3a010fdaf8fe849aec4e22c9cb14bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myElf: {fileID: 887745704}
+  selected: 0
 --- !u!1 &887745704
 GameObject:
   m_ObjectHideFlags: 0
@@ -1347,9 +1347,10 @@ GameObject:
   - component: {fileID: 1438261602}
   - component: {fileID: 1438261601}
   - component: {fileID: 1438261600}
+  - component: {fileID: 1438261599}
   m_Layer: 0
   m_Name: Agent (1)
-  m_TagString: Untagged
+  m_TagString: Elf
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1367,6 +1368,19 @@ Transform:
   m_Father: {fileID: 2074732165}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1438261599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1438261597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be3a010fdaf8fe849aec4e22c9cb14bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myElf: {fileID: 368604346}
+  selected: 0
 --- !u!195 &1438261600
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1453,10 +1467,9 @@ GameObject:
   - component: {fileID: 1593220657}
   - component: {fileID: 1593220656}
   - component: {fileID: 1593220655}
-  - component: {fileID: 1593220654}
   m_Layer: 0
   m_Name: ElfCollider3D
-  m_TagString: Elf
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1474,19 +1487,6 @@ Transform:
   m_Father: {fileID: 368604350}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1593220654
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1593220652}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be3a010fdaf8fe849aec4e22c9cb14bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myElf: {fileID: 887745704}
-  selected: 1
 --- !u!65 &1593220655
 BoxCollider:
   m_ObjectHideFlags: 0
