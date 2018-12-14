@@ -6,13 +6,15 @@ public class ElfManagerScript : MonoBehaviour {
 
 	public GameObject[] elfList;
 	public GameObject currentElf;
+	public LayerMask ElfCollider;
 
 	// Use this for initialization
 	void Start () {
 		elfList = GameObject.FindGameObjectsWithTag ("Elf");
 
 		for (int loop = 0; loop < elfList.Length; loop++) {
-			elfList [loop].GetComponent<Agent> ().resetSelection();
+			elfList [loop].GetComponent<ElfColliderClick>().agent.resetSelection();
+			//elfList [loop].GetComponent<Agent> ().resetSelection();
 		}
 		currentElf = null;
 	}
@@ -23,8 +25,8 @@ public class ElfManagerScript : MonoBehaviour {
 			
 			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
 			RaycastHit hit;
-			if (Physics.Raycast (ray, out hit)) {
-				//Debug.Log (hit.collider.gameObject.name);
+			if (Physics.Raycast (ray, out hit,Mathf.Infinity,ElfCollider)) {
+				Debug.Log (hit.collider.gameObject.name);
 				if (hit.collider.tag == "Elf") { //if select ground, set new destination
 					currentElf = GameObject.Find(hit.collider.gameObject.name);
 					//print (currentElf.name);
@@ -35,9 +37,11 @@ public class ElfManagerScript : MonoBehaviour {
 		if (currentElf != null) {
 			for (int loop = 0; loop < elfList.Length; loop++) {
 				if (elfList [loop].name == currentElf.name) {
-					elfList [loop].GetComponent<Agent> ().thisSelected ();
+					elfList [loop].GetComponent<ElfColliderClick>().agent.thisSelected();
+					//elfList [loop].GetComponent<Agent> ().thisSelected ();
 				} else {
-					elfList [loop].GetComponent<Agent> ().resetSelection ();
+					elfList [loop].GetComponent<ElfColliderClick>().agent.resetSelection();
+					//elfList [loop].GetComponent<Agent> ().resetSelection ();
 				}
 			}
 		}
