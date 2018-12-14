@@ -10,6 +10,7 @@ public class ElfManagerScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		elfList = GameObject.FindGameObjectsWithTag ("Elf");
+
 		for (int loop = 0; loop < elfList.Length; loop++) {
 			elfList [loop].GetComponent<Agent> ().resetSelection();
 		}
@@ -19,9 +20,11 @@ public class ElfManagerScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKeyDown (KeyCode.Mouse0)) {
+			
 			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
 			RaycastHit hit;
 			if (Physics.Raycast (ray, out hit)) {
+				Debug.Log (hit.collider.gameObject.name);
 				if (hit.collider.tag == "Elf") { //if select ground, set new destination
 					currentElf = GameObject.Find(hit.collider.gameObject.name);
 					print (currentElf.name);
