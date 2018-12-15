@@ -24,31 +24,31 @@ public class GameManager : MonoBehaviour {
 	void Pause ()
 	{
 		PauseScreen.SetActive (true);
-		//Time.timeScale = 0f;				//freezes the game
+		Time.timeScale = 0f;				//freezes the game
 		GamePaused = true;
 	}
 
 	public void Resume ()
 	{
 		PauseScreen.SetActive (false);
-		//Time.timeScale = 1f;				//resumes the game
+		Time.timeScale = 1f;				//resumes the game
 		GamePaused = false;
 	}
 
 	public void Restart ()
 	{
-		//Time.timeScale = 1f;
+		Time.timeScale = 1f;
 		SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex);		
 	}
 	public void Menu ()
 	{
-		//Time.timeScale = 1f;
+		Time.timeScale = 1f;
 		SceneManager.LoadScene ("Intro");
 
 	}
 	public void NextLevel ()
 	{
-		//Time.timeScale = 1f;
+		Time.timeScale = 1f;
 		SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex + 1);
 
 	}

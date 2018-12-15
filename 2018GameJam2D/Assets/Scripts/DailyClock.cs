@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Time : MonoBehaviour {
+public class DailyClock : MonoBehaviour {
 	public float MaxTime;
 	private float CurrTime;
 	public Slider TimeSlider;
@@ -28,19 +28,19 @@ public class Time : MonoBehaviour {
 	}
 
 	public void DecTime(float value){
-		
-			CurrTime -= 0.2f;
-			SetTime ();
-			if (CurrTime <= 0) {
+
+		CurrTime -= 0.2f;
+		SetTime ();
+		if (CurrTime <= 0) {
 			EndLevel ();
-				ResetTimer();
-				//change player
-			}
+			ResetTimer();
+			//change player
+		}
 
 	}
 
 	void EndLevel(){
-		
+
 	}
 
 	void Update () {
