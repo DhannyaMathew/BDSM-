@@ -13,6 +13,9 @@ public class WorkStation : MonoBehaviour {
 	public AudioClip TimeDone;
 	public Vector3 workPos;
 	public bool isWorking;
+	public Elf currElf;
+	public GameObject Toy;
+
 	// Use this for initialization
 	void Start () {
 		CurrTime = MaxTime;
@@ -45,7 +48,8 @@ public class WorkStation : MonoBehaviour {
 
 	void endTask(){
 		isWorking = false;
-
+		currElf.working = false;
+		//Toy.getcomponent<ToyQueue>().Unqueue on list;
 		//set array of toy elf is holding to next thing on the array
 
 	}

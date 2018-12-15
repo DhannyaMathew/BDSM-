@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class Agent : MonoBehaviour {
 
 	public GameObject myElf;
+	private GameObject Toy;
 	public bool selected = true; // The elf can only be given places to go if current elf is selected.
 	private NavMeshAgent agent;
 	private WorkStation stationSelected;
@@ -28,8 +29,8 @@ public class Agent : MonoBehaviour {
 						setNextDestination (hit.point);
 					}
 
-					if (hit.collider.tag == "Toy") {
-					
+					if (hit.collider.tag == "Toy" && Toy == null) {
+						Toy = hit.collider.gameObject;//*****
 					}
 
 					if (hit.collider.tag == "WorkStation") { //NEED TO TEST WHAT CURRENT ELF IS HOLDING AND WHAT IT NEEDS TO BE DONE IN ARRAY
@@ -37,9 +38,11 @@ public class Agent : MonoBehaviour {
 						//CLOCK AND SPENDS TIME, sets WORKING AS TRUE
 						stationSelected = hit.collider.gameObject.GetComponent<WorkStation> ();
 
-						//check if toy = gameobjecti snull and check its array for task, if next = current station, set both working's to true = changes back afterwards and removes array element 
-						//when done
-
+						//check if toy = gameobjecti snull and check its array for task, if next = current station
+						//myElf.GetComponent<Elf>().working = true;
+						//stationSelected.isWorking = true;
+						//stationSelected.currAgent = myElf.GetComponent<Elf>().working;
+						//stationSelected.Toy = Toy; 
 						setNextDestination (stationSelected.workPos);
 					}
 				}

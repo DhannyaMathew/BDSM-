@@ -20,7 +20,8 @@ public class Elf : MonoBehaviour
 	private Queue<Vector3> destinationQueue;
 	//Queue with all the destinations
 	private Vector3 currentDestination;
-	private bool starting, working;
+	private bool starting;
+	public bool working;
 	//Used in the case of the first movement
 	//make a bool for working
 
