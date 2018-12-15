@@ -23,7 +23,6 @@ public class GameManager : MonoBehaviour {
 	
 	void Pause ()
 	{
-		
 		PauseScreen.SetActive (true);
 		//Time.timeScale = 0f;				//freezes the game
 		GamePaused = true;
