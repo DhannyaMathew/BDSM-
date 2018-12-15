@@ -8,6 +8,7 @@ public class Agent : MonoBehaviour {
 	public GameObject myElf;
 	public bool selected = true; // The elf can only be given places to go if current elf is selected.
 	private NavMeshAgent agent;
+	private WorkStation stationSelected;
 	// Use this for initialization
 	void Start () {
 		agent = GetComponent<NavMeshAgent> ();
@@ -25,6 +26,21 @@ public class Agent : MonoBehaviour {
 				if (Physics.Raycast (ray, out hit)) {
 					if (hit.collider.tag == "Ground") { //if select ground, set new destination
 						setNextDestination (hit.point);
+					}
+
+					if (hit.collider.tag == "Toy") {
+					
+					}
+
+					if (hit.collider.tag == "WorkStation") { //NEED TO TEST WHAT CURRENT ELF IS HOLDING AND WHAT IT NEEDS TO BE DONE IN ARRAY
+						//IF NEEDS THIS STATION, SET OFF TRUE HERE AND ON STATION WHEN REACH DESTINATION = STATION CHECKS IF TRUE HERE WHEN ARRIVED AT THE VECTOR POSITION AND AVTIVATES 
+						//CLOCK AND SPENDS TIME, sets WORKING AS TRUE
+						stationSelected = hit.collider.gameObject.GetComponent<WorkStation> ();
+
+						//check if toy = gameobjecti snull and check its array for task, if next = current station, set both working's to true = changes back afterwards and removes array element 
+						//when done
+
+						setNextDestination (stationSelected.workPos);
 					}
 				}
 			}

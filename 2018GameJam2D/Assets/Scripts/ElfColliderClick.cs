@@ -5,13 +5,5 @@ using UnityEngine.AI;
 
 public class ElfColliderClick : MonoBehaviour {
 	public Agent agent;
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+	//links to relative Agent of this Collider/Elf
 }

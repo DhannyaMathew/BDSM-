@@ -52,13 +52,6 @@ public class Elf : MonoBehaviour
 		} else {
 			moving = false;
 		}
-			
-			
-		/*if ((Horizontal < 0.15f && Horizontal > -0.15f) || pushing) {
-					moving = false;
-				} else if (!pushing && (Horizontal < -0.15f || Horizontal > 0.15f)){
-					moving = true;
-				}*/
 		
 		playerAnim.SetBool ("Walking", moving);
 		if (Horizontal < 0) {
@@ -74,7 +67,7 @@ public class Elf : MonoBehaviour
 				starting = false;
 			}
 
-			if (Vector3.Distance (transform.position, currentDestination) <= 1.6 && destinationQueue.Count != 0 && !working) {
+			if (Vector3.Distance (transform.position, currentDestination) <= 1.6f && destinationQueue.Count != 0 && !working) {
 				dequeueDestination ();
 			}
 		}

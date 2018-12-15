@@ -18,6 +18,7 @@ public class DailyClock : MonoBehaviour {
 	}
 
 	void SetTime(){
+		TimeSlider.maxValue = MaxTime;
 		TimeSlider.value = CurrTime;	
 		FillImage.color = Color.Lerp (LowTimeColour, FullTimeColour, CurrTime / MaxTime);
 	}
