@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour {
 	private bool GamePaused;
 	private GameObject PauseScreen;
 	public static GameManager instance = null;
+	public bool endLevel;
 
 	void Awake ()
 	{
@@ -19,6 +20,7 @@ public class GameManager : MonoBehaviour {
 
 	void Start () {
 		PauseScreen = GameObject.FindGameObjectWithTag ("PauseScreen");
+		endLevel = false;
 	}
 	
 	void Pause ()

@@ -11,10 +11,15 @@ public class DailyClock : MonoBehaviour {
 	public Color FullTimeColour = Color.green;
 	public Color LowTimeColour = Color.red;
 	public AudioClip TimeDone;
-
+	public GameObject TimeBooster;
+	private float randomBoostVal;
+	public Transform BottomLine;
+	private bool isSpawning, endLevel;
 	// Use this for initialization
 	void Start () {
 		CurrTime = MaxTime;
+		isSpawning = false;
+		endLevel = false;
 	}
 
 	void SetTime(){
@@ -34,17 +39,30 @@ public class DailyClock : MonoBehaviour {
 		SetTime ();
 		if (CurrTime <= 0) {
 			EndLevel ();
-			ResetTimer();
-			//change player
 		}
 
 	}
 
 	void EndLevel(){
-
+		//end screen with pass of fail = add a panel to block player from being able to keep playing
+		endLevel = true;
+		GameManager.instance.endLevel = true;
 	}
 
 	void Update () {
-		DecTime (0.2f);
+		if (!endLevel) {
+			DecTime (0.2f);
+		}
+		if (!isSpawning) {
+			randomBoostVal = Random.Range (CurrTime,CurrTime-30f);
+			if (randomBoostVal > 0f) {
+				Invoke ("SpawnBoost", randomBoostVal);
+				isSpawning = true;
+			}
+		}
+	}
+	void SpawnBoost(){
+		Instantiate (TimeBooster, new Vector3(Random.Range(BottomLine.position.x-(BottomLine.localScale.x/2f),BottomLine.position.x+(BottomLine.localScale.x/2f)),BottomLine.position.y,BottomLine.position.z), Quaternion.identity, BottomLine);
+		isSpawning = false;
 	}
 }

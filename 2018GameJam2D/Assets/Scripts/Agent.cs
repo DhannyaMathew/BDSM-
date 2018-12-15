@@ -19,7 +19,7 @@ public class Agent : MonoBehaviour {
 	void Update () {
 		if (selected) {
 			//assigning target to agent component
-			if (Input.GetMouseButtonDown (0)) {
+			if (Input.GetMouseButtonDown (0) && !GameManager.instance.endLevel) {
 				//Create raycast to find new target
 				//change world cooridnates of mouse into world screen coordinates using camera
 				Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
