@@ -8,6 +8,15 @@ TagManager:
   - Elf
   - PauseScreen
   - WorkStation
+  - Snek
+  - TeddyBear
+  - Coal
+  - Lion
+  - Socks
+  - RubixCube
+  - Car
+  - Whisk
+  - Drum
   layers:
   - Default
   - TransparentFX

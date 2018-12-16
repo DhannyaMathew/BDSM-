@@ -47,6 +47,11 @@ public class Agent : MonoBehaviour {
 					}
 				}
 			}
+				
+			if (Toy != null) {
+				Toy.GetComponent<ToyScript> ().displayQueue (selected);
+			}
+
 		}
 	}
 		
