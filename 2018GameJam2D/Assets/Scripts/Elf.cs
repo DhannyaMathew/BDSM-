@@ -7,6 +7,7 @@ public class Elf : MonoBehaviour
 {
 
 	public Transform target;
+	public Transform toySpriteHolder;
 	public float ZOffset;
 	//recall sprites pivot is at the bottom
 	public NavMeshAgent myAgent;
@@ -33,7 +34,7 @@ public class Elf : MonoBehaviour
 		//_audio = GetComponent<AudioSource> ();
 		Player = GetComponent<Rigidbody2D> ();
 		destinationQueue = new Queue<Vector3> ();
-		print (destinationQueue.Count);
+		//print (destinationQueue.Count);
 		starting = true;
 	}
 
@@ -71,10 +72,10 @@ public class Elf : MonoBehaviour
 			if (Vector3.Distance (transform.position, currentDestination) <= 1.6f && destinationQueue.Count != 0 && !working) {
 				dequeueDestination ();
 			}
+		
 		}
 
 	}
-
 
 
 	void TurnLeft ()
@@ -99,8 +100,6 @@ public class Elf : MonoBehaviour
 	void LateUpdate ()
 	{
 		transform.localPosition = new Vector3 (target.localPosition.x, transform.localPosition.y, target.localPosition.z + ZOffset);
-
-
 	}
 
 	public void enqueueDestination (Vector3 destination) //adds a destination to the queue
@@ -113,8 +112,12 @@ public class Elf : MonoBehaviour
 		currentDestination = destinationQueue.Dequeue ();
 		myAgent.GetComponent<Agent> ().goNextDestination (currentDestination);
 	}
-
-
+	public int destinationCount(){
+		return destinationQueue.Count;
+	}
+	public Vector3 getCurrentDestination(){
+		return currentDestination;
+		}
 	//Make a delay thing ye boi
 
 

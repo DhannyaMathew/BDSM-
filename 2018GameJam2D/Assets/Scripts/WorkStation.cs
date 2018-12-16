@@ -14,7 +14,7 @@ public class WorkStation : MonoBehaviour {
 	public Vector3 workPos;
 	public bool isWorking;
 	public Elf currElf;
-	public GameObject Toy;
+	public ToyScript Toy;
 
 	// Use this for initialization
 	void Start () {
@@ -49,12 +49,33 @@ public class WorkStation : MonoBehaviour {
 	void endTask(){
 		isWorking = false;
 		currElf.working = false;
-		//Toy.getcomponent<ToyQueue>().Unqueue on list;
-		//set array of toy elf is holding to next thing on the array
+		currElf = null;
+		Toy.dequeueStation ();
+		Toy.NextState ();
+		Toy.onHead = true;
+		currElf.dequeueDestination();
+		if (currElf.destinationCount() <= 0){
+			currElf.myAgent.GetComponent<Agent>().RemoveToy();
+			Destroy(Toy.GetComponent<GameObject>());
+			Toy.currElf = null; 
 
+			for (int i = 0; i < DailyClock.instance.toyTags.Length; i++){ 
+				if (this.gameObject.tag == DailyClock.instance.toyTags[i]) {
+					DailyClock.instance.toyCount [i]++;
+				}
+			}
+		}
+		Toy = null;
 	}
 
 	void Update () {
+		if (currElf != null) {
+			if (currElf.getCurrentDestination() == workPos) {//Vector3.Distance (currElf.GetComponent<Transform>().position, workPos) < 1.9f && 
+				isWorking = true;
+				Toy.onHead = false;
+				currElf.working = true;
+			}
+		}
 		if (isWorking){
 		DecTime (0.2f);
 		}

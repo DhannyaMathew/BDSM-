@@ -27,12 +27,13 @@ public class ElfManagerScript : MonoBehaviour {
 			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
 			RaycastHit hit;
 			if (Physics.Raycast (ray, out hit,Mathf.Infinity,ElfCollider)) {
-				//Debug.Log (hit.collider.gameObject.name);
 				if (hit.collider.tag == "Elf") { //if select ground, set new destination
 					currentElf = hit.collider.gameObject;
-					//GameObject.Find(hit.collider.gameObject.transform.name);
-					//print (currentElf.name);
 				}
+				/*if (hit.collider.tag == "TeddyBear" || hit.collider.tag == "Snek" || hit.collider.tag == "Lion" || hit.collider.tag == "Socks" || hit.collider.tag
+				    == "RubixCube" || hit.collider.tag == "Car" || hit.collider.tag == "Whisk" || hit.collider.tag == "Drum") {
+					hit.collider.GetComponent<ToyScript> ().displayQueue (true);
+				} */
 			}
 		}
 

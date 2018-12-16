@@ -13,6 +13,14 @@ public class ToyScript : MonoBehaviour {
 	bool wrapping;
 	bool sleigh;
 
+	public bool onHead, pickedUp;
+	public Sprite[] ToyState = new Sprite[5]; //ensure last state is null!!*************
+	int toyStateCounter = 0;
+	SpriteRenderer toyImage;
+	public Transform toyHeadPos; //make child of Elf holding it
+	public Vector3 toyWalkPos;
+	public Elf currElf;
+
 	GameObject sowingObject;
 	GameObject repairsObject;
 	GameObject boxingObject;
@@ -26,7 +34,11 @@ public class ToyScript : MonoBehaviour {
 	Image sleighImage;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
+		toyImage = this.GetComponent<SpriteRenderer> ();
+		toyWalkPos = this.GetComponentInChildren<Transform> ().position;
+		toyImage.sprite = ToyState [toyStateCounter];
+
 		sowingObject = GameObject.Find ("SowingImage");
 		repairsObject = GameObject.Find ("RepairsImage");
 		boxingObject = GameObject.Find ("BoxingImage");
@@ -43,17 +55,20 @@ public class ToyScript : MonoBehaviour {
 
 		if (this.gameObject.tag == "TeddyBear" || this.gameObject.tag == "Snek" || this.gameObject.tag == "Lion" || this.gameObject.tag == "Socks") {
 			stationQueue.Enqueue ("Sowing");
+			sowing = true;
 		}
 
 		if (this.gameObject.tag == "RubixCube" || this.gameObject.tag == "Car" || this.gameObject.tag == "Whisk" || this.gameObject.tag == "Drum") {
 			stationQueue.Enqueue ("Repairs");
+			repairs = true;
 		}
-
+			
 		stationQueue.Enqueue ("Boxing");
-
+		boxing = true;
 		stationQueue.Enqueue ("Wrapping");
-
+		wrapping = true;
 		stationQueue.Enqueue ("Sleigh");
+		sleigh = true;
 
 		if (this.gameObject.tag == "Coal") {
 			stationQueue.Clear ();
@@ -61,10 +76,32 @@ public class ToyScript : MonoBehaviour {
 		}
 
 	}
-	
+
+	public void NextState(){
+		toyStateCounter++;
+		toyImage.sprite = ToyState [toyStateCounter];
+	}
 	// Update is called once per frame
 	void Update () {
-		if (stationQueue.Contains ("Sowing")) {
+		if (currElf != null) {
+			if (currElf.getCurrentDestination() == toyWalkPos && !pickedUp) {//Vector3.Distance (currElf.GetComponent<Transform>().position, workPos) < 1.9f && 
+				onHead = true;
+				pickedUp = true;
+				Destroy(this.transform.GetChild(0).gameObject);
+
+			}
+		}
+
+		if (onHead && pickedUp && currElf != null) {
+			transform.position = toyHeadPos.position;
+			toyImage.enabled = true;
+		} 
+
+		if (!onHead && pickedUp && currElf != null) {
+			toyImage.enabled = false;
+		}
+
+		/*if (stationQueue.Contains ("Sowing")) {
 			sowing = true;
 		} else {
 			sowing = false;
@@ -92,15 +129,19 @@ public class ToyScript : MonoBehaviour {
 			sleigh = true;
 		} else {
 			sleigh = false;
-		}
+		}*/
 
-		displayQueue (true); //THIS BOI IS USED FOR TESTING, REMOVE LATER
+		//displayQueue (true); //THIS BOI IS USED FOR TESTING, REMOVE LATER
 
 	}
 
 	public void dequeueStation() // used to remove a station from the queue of the station, to be called from the station script
 	{
 		stationQueue.Dequeue ();
+	}
+	public string toyStation() //Shows Item at the front of the Queue
+	{
+		return stationQueue.Peek ();
 	}
 
 	public void displayQueue(bool active) 
