@@ -1,26 +1,16 @@
-Elves
+To Do:
+PLAYTEST IF GAME ACTUALLY WORKS
 
-Objects
-=======
-Presents
-Boxes
+Pass/Fail Stamp for win/lose round (on pause screen over images of toys)
 
-Stations
-=======
-Sowing 
-Craft 
-Wrapping
+Music
 
-Time power ups
-==============
+Implementing all Images into game
 
+Also, Menu needs all functionality added! currently just UI
 
-Money
-=====
+BackGround Images
 
-things must be done, check gift to see what it needs, go to box/what it needs 
-next lastly neeeds to be wrapped and popped into Santa's sleigh
-perhaps a time delay for Santa heading out and returning?
+Small UI Icons
 
-
-Background
+EndScreen Image plsu THANK YOU FOR PLAYING OUT DEMO
