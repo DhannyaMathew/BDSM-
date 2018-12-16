@@ -13,6 +13,8 @@ public class Agent : MonoBehaviour
 	private NavMeshAgent agent;
 	private WorkStation stationSelected;
 	private ToyScript toySelected;
+	//private ConveyorBelt addNewToy;
+
 	// Use this for initialization
 	void Start ()
 	{
@@ -37,10 +39,12 @@ public class Agent : MonoBehaviour
 					if ((hit.collider.tag == "TeddyBear" || hit.collider.tag == "Snek" || hit.collider.tag == "Lion" || hit.collider.tag == "Socks" || hit.collider.tag
 						== "RubixCube" || hit.collider.tag == "Car" || hit.collider.tag == "Whisk" || hit.collider.tag == "Drum") && Toy == null) {
 						Toy = hit.collider.gameObject;
+						Toy.GetComponentInParent<Transform> ().DetachChildren(); //NEED TO TEST THIS BAD BOI FOR CONVEYOR BELT SCRIPT
 						toySelected = Toy.GetComponent<ToyScript> ();
 						setNextDestination (toySelected.toyWalkPos);
 						toySelected.toyHeadPos = myElf.GetComponent<Elf>().toySpriteHolder;
 						toySelected.currElf = myElf.GetComponent<Elf> ();
+
 					}
 
 					if (hit.collider.tag == "WorkStation") { 

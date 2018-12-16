@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 	private bool GamePaused;
-	private GameObject PauseScreen;
+	public GameObject PauseScreen;
 	public static GameManager instance = null;
 	public bool endLevel;
 
@@ -19,8 +19,7 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void Start () {
-		PauseScreen = GameObject.FindGameObjectWithTag ("PauseScreen");
-		endLevel = false;
+		
 	}
 	
 	void Pause ()
@@ -45,7 +44,7 @@ public class GameManager : MonoBehaviour {
 	public void Menu ()
 	{
 		Time.timeScale = 1f;
-		SceneManager.LoadScene ("Intro");
+		SceneManager.LoadScene ("Menu");
 
 	}
 	public void NextLevel ()
@@ -54,14 +53,25 @@ public class GameManager : MonoBehaviour {
 		SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex + 1);
 
 	}
+
+	public void winLevel(){
+	}
+	public void loseLevel(){
+	}
+
 	public void Quit ()
 	{
 		Application.Quit ();
 	}
 	void Update () {
-		if (Input.GetKeyDown (KeyCode.Escape)) {
+		if (Input.GetKeyDown (KeyCode.Escape) && GamePaused) {
 			Quit ();
 		}
+
+		if (Input.GetKeyDown (KeyCode.Escape) && !GamePaused) {
+			Pause ();
+		}
+
 		if (Input.GetKeyDown (KeyCode.P)) {
 			if (GamePaused == true) {
 				Resume ();

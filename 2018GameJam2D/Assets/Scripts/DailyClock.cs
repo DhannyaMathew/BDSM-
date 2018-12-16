@@ -2,11 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class DailyClock : MonoBehaviour {
 
-	public string[] toyTags = new string[8]{"TeddyBear","Snek","Lion","Socks","RubixCube","Car","Whisk","Drum"};
-	public int[] toyCount = new int[8]{0,0,0,0,0,0,0,0};
+	public string[] toyTags = new string[9]{"TeddyBear","Snek","Lion","Socks","RubixCube","Car","Whisk","Drum","Coal"};
+	public int[] toyCount = new int[9]{0,0,0,0,0,0,0,0,0};
+	public int[] toyCountGoal = new int[9]{0,0,0,0,0,0,0,0,0};
+	public Text[] toyText = new Text[9];
+
+	public GameObject Next;
+	public GameObject Resume;
+
+	int GoalVal;
 
 	public float MaxTime;
 	private float CurrTime;
@@ -35,6 +43,12 @@ public class DailyClock : MonoBehaviour {
 		CurrTime = MaxTime;
 		isSpawning = false;
 		endLevel = false;
+
+		for (int i = 0; i < toyCountGoal.Length; i++) {
+			GoalVal = Random.Range (1 * SceneManager.GetActiveScene ().buildIndex - 1, Mathf.CeilToInt(2.5f * SceneManager.GetActiveScene ().buildIndex));
+			toyCountGoal [i] = GoalVal;
+		}
+
 	}
 
 	void SetTime(){
@@ -62,12 +76,33 @@ public class DailyClock : MonoBehaviour {
 		//end screen with pass of fail = add a panel to block player from being able to keep playing
 		endLevel = true;
 		GameManager.instance.endLevel = true;
+
+		for (int i = 0; i < toyCount.Length; i++) {
+			if (toyCount [i] < toyCountGoal[i]) {
+				GameManager.instance.loseLevel ();
+				goto end;
+			}
+			GameManager.instance.winLevel ();
+			Next.SetActive (true);
+			Resume.SetActive (false);
+		}
+
+		end: 
+		Next.SetActive (false);
+		Resume.SetActive (false);
 	}
 
 	void Update () {
 		if (!endLevel) {
 			DecTime (0.005f);
 		}
+
+		if (GameManager.instance.PauseScreen.activeInHierarchy) {
+			for (int i = 0; i < toyText.Length; i++) {
+				toyText[i].text = toyCount[i]+"/"+toyCountGoal[i];
+			}
+		}
+
 		if (!isSpawning) {
 			randomBoostVal = Random.Range (CurrTime,CurrTime-30f);
 			if (randomBoostVal > 0f) {
