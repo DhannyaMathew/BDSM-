@@ -44,7 +44,7 @@ public class Agent : MonoBehaviour
 						setNextDestination (toySelected.toyWalkPos);
 						toySelected.toyHeadPos = myElf.GetComponent<Elf>().toySpriteHolder;
 						toySelected.currElf = myElf.GetComponent<Elf> ();
-
+						myElf.GetComponent<Elf> ().holding = true;
 					}
 
 					if (hit.collider.tag == "WorkStation") { 

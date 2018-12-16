@@ -53,12 +53,13 @@ public class WorkStation : MonoBehaviour {
 		Toy.dequeueStation ();
 		Toy.NextState ();
 		Toy.onHead = true;
+		currElf.holding = true;
 		currElf.dequeueDestination();
 		if (currElf.destinationCount() <= 0){
 			currElf.myAgent.GetComponent<Agent>().RemoveToy();
 			Destroy(Toy.GetComponent<GameObject>());
 			Toy.currElf = null; 
-
+			currElf.holding = false;
 			for (int i = 0; i < DailyClock.instance.toyTags.Length; i++){ 
 				if (this.gameObject.tag == DailyClock.instance.toyTags[i]) {
 					DailyClock.instance.toyCount [i]++;
@@ -74,6 +75,7 @@ public class WorkStation : MonoBehaviour {
 				isWorking = true;
 				Toy.onHead = false;
 				currElf.working = true;
+				currElf.holding = false;
 			}
 		}
 		if (isWorking){

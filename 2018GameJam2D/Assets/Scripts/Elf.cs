@@ -23,6 +23,7 @@ public class Elf : MonoBehaviour
 	private Vector3 currentDestination;
 	private bool starting;
 	public bool working;
+	public bool holding;
 	//Used in the case of the first movement
 	//make a bool for working
 
@@ -48,14 +49,16 @@ public class Elf : MonoBehaviour
 
 
 
-		if (move.magnitude > 0.15 || move.magnitude < -0.15) {
+		if ((move.magnitude > 0.15 || move.magnitude < -0.15) && !working) {
 			moving = true;
-
-		} else {
+			playerAnim.SetBool ("Walking", moving);
+		} else if ((move.magnitude < 0.15 || move.magnitude > -0.15) && !working){
 			moving = false;
+			playerAnim.SetBool ("Walking", moving);
 		}
-		
-		playerAnim.SetBool ("Walking", moving);
+		playerAnim.SetBool ("Working", working);
+		playerAnim.SetBool ("Holding", holding);
+
 		if (Horizontal < 0) {
 			TurnLeft ();
 		} else if (Horizontal > 0) {
