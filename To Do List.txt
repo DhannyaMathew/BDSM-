@@ -1,19 +1,8 @@
 To Do:
-Marco, recharge station is cool but we'll have to use it as a new work station :) Is it possible for you to make a Repair station with spanners and shit?
-+Conveyor belt needs to be doubled (horizontally)
 
-NEED STAGES FOR SPRITES OF TOYS
+PLAYTEST IF GAME ACTUALLY WORKS (Do at midnight all together) + LEVELs
 
-PLAYTEST IF GAME ACTUALLY WORKS (Do at midnight all together)
+Implement Music & Images into game (including dragging gameobjects into arrays (eg toy stages), making prefabs etc)
 
-Pass/Fail Stamp for win/lose round (on pause screen over images of toys) = need to code this still
+BackGround Image
 
-Implement Music & Images into game
-
-Menu needs to look pretty
-
-BackGround Images
-
-Small UI Icons
-
-EndScreen Image with THANK YOU FOR PLAYING OUR DEMO

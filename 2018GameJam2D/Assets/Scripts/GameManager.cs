@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void Start () {
-		FadeEffect.instance.FadeIn (0.5f);
+		FadeEffect.instance.FadeOut (0.5f);
 	}
 	
 	void Pause ()
@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour {
 	{
 		Time.timeScale = 1f;
 		SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex + 1);
-		FadeEffect.instance.FadeOut (0.5f);
+		FadeEffect.instance.FadeIn (0.5f);
 	}
 
 	public void winLevel(){

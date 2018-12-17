@@ -4190,7 +4190,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 46b3a336aeed5a24984a7808271e1daa, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4997,7 +4997,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300002, guid: 46b3a336aeed5a24984a7808271e1daa, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6551,10 +6551,10 @@ MonoBehaviour:
   onHead: 0
   pickedUp: 0
   ToyState:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 546768e1039b1e14d9d7270a718e9e33, type: 3}
+  - {fileID: 21300000, guid: 546768e1039b1e14d9d7270a718e9e33, type: 3}
+  - {fileID: 21300000, guid: 12088ca4405629c4e821203bf6784d8e, type: 3}
+  - {fileID: 21300002, guid: 12088ca4405629c4e821203bf6784d8e, type: 3}
   - {fileID: 0}
   toyHeadPos: {fileID: 0}
   toyWalkPos: {x: 0, y: 0, z: 0}
