@@ -14,7 +14,7 @@ public class Agent : MonoBehaviour
 	private WorkStation stationSelected;
 	private ToyScript toySelected;
 	//private ConveyorBelt addNewToy;
-
+	public AudioClip wrongStation;
 	// Use this for initialization
 	void Start ()
 	{
@@ -55,13 +55,15 @@ public class Agent : MonoBehaviour
 						setNextDestination (stationSelected.workPos);
 
 						if (Toy != null && stationSelected.currElf == null) {
-							if(toySelected.toyStation() == stationSelected.gameObject.tag){
+							if (toySelected.toyStation () == stationSelected.gameObject.tag) {
 								//if (stationSelected.currElf == null) {
 								stationSelected.currElf = myElf.GetComponent<Elf> ();
-							//}
+								//}
 								stationSelected.Toy = toySelected; 
 
-						}
+							}
+						} else {
+							SoundController.instance.Playone (wrongStation);
 						}
 
 					}

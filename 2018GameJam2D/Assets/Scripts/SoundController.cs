@@ -36,9 +36,9 @@ public class SoundController : MonoBehaviour
 		MusicSource.Play ();
 	}
 
-	public void PlayTick ()//AudioClip clip
+	public void PlayTick (AudioClip clip)//AudioClip clip
 	{	//Ticking.Stop();
-		//Ticking.clip = clip;
+		Ticking.clip = clip;
 		Ticking.Play ();
 	}
 

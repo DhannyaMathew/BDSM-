@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour {
 	public static GameManager instance = null;
 	public bool endLevel;
 	public GameObject Fail, Pass;
+	public AudioClip pass,fail;
 
 	void Awake ()
 	{
@@ -58,11 +59,13 @@ public class GameManager : MonoBehaviour {
 	public void winLevel(){
 		Pause();
 		//Pass Stamp
+		SoundController.instance.Playone(pass);
 		Pass.SetActive(true);
 	}
 	public void loseLevel(){
 		Pause();
 		//Fail Stamp
+		SoundController.instance.Playone(fail);
 		Fail.SetActive(true);
 	}
 

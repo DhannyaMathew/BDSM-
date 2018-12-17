@@ -15,6 +15,7 @@ public class WorkStation : MonoBehaviour {
 	public bool isWorking;
 	public Elf currElf;
 	public ToyScript Toy;
+	public AudioClip stationDone, trash;
 
 	// Use this for initialization
 	void Start () {
@@ -47,6 +48,7 @@ public class WorkStation : MonoBehaviour {
 	}
 
 	void endTask(){
+		
 		isWorking = false;
 		currElf.working = false;
 
@@ -57,6 +59,7 @@ public class WorkStation : MonoBehaviour {
 			Toy.NextState ();
 			Toy.onHead = true;
 			currElf.holding = true;
+			SoundController.instance.Playone (stationDone);
 		}
 
 
@@ -70,6 +73,7 @@ public class WorkStation : MonoBehaviour {
 		}
 
 		if (this.gameObject.tag == "Trash"){
+			SoundController.instance.Playone (trash);
 			deleteToy (); //SFX 1
 		}
 

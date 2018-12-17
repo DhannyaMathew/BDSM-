@@ -26,7 +26,7 @@ public class Elf : MonoBehaviour
 	public bool holding;
 	//Used in the case of the first movement
 	//make a bool for working
-
+	public AudioClip workingSFX;
 		
 	void Start ()
 	{
@@ -80,6 +80,14 @@ public class Elf : MonoBehaviour
 
 	}
 
+	public void StartWorkingSFX(){
+		this.GetComponent<AudioSource>().clip = workingSFX;
+		this.GetComponent<AudioSource> ().Play ();
+	}
+
+	public void StopWorkingSFX(){//***********************for animations trigger
+		this.GetComponent<AudioSource> ().Stop ();
+	}
 
 	void TurnLeft ()
 	{

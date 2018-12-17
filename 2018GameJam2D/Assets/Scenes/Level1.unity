@@ -417,7 +417,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -701,7 +701,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sfx: {fileID: 106141738}
-  MusicSource: {fileID: 106141739}
+  MusicSource: {fileID: 106141738}
   Ticking: {fileID: 106141737}
 --- !u!4 &106141741
 Transform:
@@ -1375,6 +1375,7 @@ GameObject:
   - component: {fileID: 368604349}
   - component: {fileID: 368604348}
   - component: {fileID: 368604347}
+  - component: {fileID: 368604351}
   m_Layer: 0
   m_Name: ElfWorkerSprite (1)
   m_TagString: Untagged
@@ -1403,6 +1404,7 @@ MonoBehaviour:
   TurnBox: {fileID: 0}
   working: 0
   holding: 0
+  workingSFX: {fileID: 0}
 --- !u!95 &368604348
 Animator:
   serializedVersion: 3
@@ -1482,6 +1484,101 @@ Transform:
   m_Father: {fileID: 1704587762}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!82 &368604351
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 368604346}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &400494684
 GameObject:
   m_ObjectHideFlags: 0
@@ -3004,6 +3101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myElf: {fileID: 887745704}
   selected: 0
+  wrongStation: {fileID: 0}
 --- !u!1 &887745704
 GameObject:
   m_ObjectHideFlags: 0
@@ -3015,6 +3113,7 @@ GameObject:
   - component: {fileID: 887745706}
   - component: {fileID: 887745705}
   - component: {fileID: 887745708}
+  - component: {fileID: 887745709}
   m_Layer: 0
   m_Name: ElfWorkerSprite
   m_TagString: Untagged
@@ -3122,6 +3221,102 @@ MonoBehaviour:
   TurnBox: {fileID: 0}
   working: 0
   holding: 0
+  workingSFX: {fileID: 0}
+--- !u!82 &887745709
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 887745704}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &887826047
 GameObject:
   m_ObjectHideFlags: 0
@@ -4213,6 +4408,8 @@ MonoBehaviour:
   isWorking: 0
   currElf: {fileID: 0}
   Toy: {fileID: 0}
+  stationDone: {fileID: 0}
+  trash: {fileID: 0}
 --- !u!1 &1287834618
 GameObject:
   m_ObjectHideFlags: 0
@@ -4526,6 +4723,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myElf: {fileID: 368604346}
   selected: 0
+  wrongStation: {fileID: 0}
 --- !u!195 &1438261600
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -5950,6 +6148,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PauseScreen: {fileID: 605304032}
   endLevel: 0
+  Fail: {fileID: 0}
+  Pass: {fileID: 0}
+  pass: {fileID: 0}
+  fail: {fileID: 0}
 --- !u!4 &1937930723
 Transform:
   m_ObjectHideFlags: 0
@@ -5998,6 +6200,8 @@ MonoBehaviour:
   - {fileID: 129549902}
   Next: {fileID: 588272729}
   Resume: {fileID: 1030675646}
+  Ticking: {fileID: 0}
+  Ring: {fileID: 0}
   MaxTime: 1000
   TimeSlider: {fileID: 400494686}
   FillImage: {fileID: 897817012}

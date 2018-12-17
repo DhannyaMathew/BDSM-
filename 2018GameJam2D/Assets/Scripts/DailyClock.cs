@@ -13,6 +13,7 @@ public class DailyClock : MonoBehaviour {
 
 	public GameObject Next;
 	public GameObject Resume;
+	public AudioClip Ticking, Ring;
 
 	int GoalVal;
 
@@ -40,6 +41,7 @@ public class DailyClock : MonoBehaviour {
 	}
 
 	void Start () {
+		SoundController.instance.PlayTick (Ticking);
 		CurrTime = MaxTime;
 		isSpawning = false;
 		endLevel = false;
@@ -74,6 +76,8 @@ public class DailyClock : MonoBehaviour {
 
 	void EndLevel(){
 		//end screen with pass of fail = add a panel to block player from being able to keep playing
+		SoundController.instance.Playone(Ring);
+		SoundController.instance.Ticking.Stop();
 		endLevel = true;
 		GameManager.instance.endLevel = true;
 

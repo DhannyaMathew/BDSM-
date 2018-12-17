@@ -12,6 +12,7 @@ public class ConveyorBelt : MonoBehaviour {
 	private Material Belt;
 	private Vector2 offSet;
 	public float Xvel,Yvel;
+	public AudioClip ConveyorMove;
 
 	// Use this for initialization
 	void Start () {
@@ -29,8 +30,12 @@ public class ConveyorBelt : MonoBehaviour {
 	IEnumerator moveBelt(){
 		while (true) {
 			if (moveToy != -1) {
+				this.GetComponent<AudioSource>().clip = ConveyorMove;
+				this.GetComponent<AudioSource> ().Play ();
+
 				offSet = new Vector2 (Xvel, Yvel);
 				for (int j = 0; j <= moveToy; j++) {
+					
 					if (ToyPos [j].childCount != 0) {
 						Destroy (ToyPos [0].GetComponentInChildren<GameObject> ());
 					}
@@ -45,6 +50,7 @@ public class ConveyorBelt : MonoBehaviour {
 				}
 				offSet = new Vector2 (0, 0);
 				moveToy = -1;
+				this.GetComponent<AudioSource> ().Stop();
 			}
 			Belt.mainTextureOffset += offSet * Time.deltaTime;
 		}
