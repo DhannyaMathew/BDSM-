@@ -47,7 +47,7 @@ public class Agent : MonoBehaviour
 						myElf.GetComponent<Elf> ().holding = true;
 					}
 
-					if (hit.collider.tag == "WorkStation") { 
+					if (hit.collider.tag == "WorkStation" || hit.collider.tag == "Trash") { 
 						
 						stationSelected = hit.collider.gameObject.GetComponent<WorkStation> ();
 						setNextDestination (stationSelected.workPos);

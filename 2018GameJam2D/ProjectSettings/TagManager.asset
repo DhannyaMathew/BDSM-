@@ -17,6 +17,7 @@ TagManager:
   - Car
   - Whisk
   - Drum
+  - Trash
   layers:
   - Default
   - TransparentFX

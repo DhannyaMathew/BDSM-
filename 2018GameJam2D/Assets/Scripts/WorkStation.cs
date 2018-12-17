@@ -49,24 +49,41 @@ public class WorkStation : MonoBehaviour {
 	void endTask(){
 		isWorking = false;
 		currElf.working = false;
-		currElf = null;
-		Toy.dequeueStation ();
-		Toy.NextState ();
-		Toy.onHead = true;
-		currElf.holding = true;
+
 		currElf.dequeueDestination();
+
+		if (this.gameObject.tag != "Trash") {
+			Toy.dequeueStation ();
+			Toy.NextState ();
+			Toy.onHead = true;
+			currElf.holding = true;
+		}
+
+
 		if (currElf.destinationCount() <= 0){
-			currElf.myAgent.GetComponent<Agent>().RemoveToy();
-			Destroy(Toy.GetComponent<GameObject>());
-			Toy.currElf = null; 
-			currElf.holding = false;
+			deleteToy (); //SFX 2
 			for (int i = 0; i < DailyClock.instance.toyTags.Length; i++){ 
 				if (this.gameObject.tag == DailyClock.instance.toyTags[i]) {
 					DailyClock.instance.toyCount [i]++;
 				}
 			}
 		}
+
+		if (this.gameObject.tag == "Trash"){
+			deleteToy (); //SFX 1
+		}
+
+
+		currElf = null;
 		Toy = null;
+	}
+
+	void deleteToy(){
+		currElf.myAgent.GetComponent<Agent>().RemoveToy();
+		Destroy(Toy.GetComponent<GameObject>());
+		Toy.currElf = null; 
+		currElf.holding = false;
+
 	}
 
 	void Update () {
