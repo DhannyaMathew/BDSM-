@@ -6,11 +6,9 @@ NEED STAGES FOR SPRITES OF TOYS
 
 PLAYTEST IF GAME ACTUALLY WORKS (Do at midnight all together)
 
-Pass/Fail Stamp for win/lose round (on pause screen over images of toys)
+Pass/Fail Stamp for win/lose round (on pause screen over images of toys) = need to code this still
 
-Music
-
-Implementing all Images into game
+Implement Music & Images into game
 
 Menu needs to look pretty
 
@@ -18,4 +16,4 @@ BackGround Images
 
 Small UI Icons
 
-EndScreen Image THANK YOU FOR PLAYING OUT DEMO
+EndScreen Image with THANK YOU FOR PLAYING OUT DEMO

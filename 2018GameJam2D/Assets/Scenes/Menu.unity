@@ -2218,14 +2218,21 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Music Credits (Freesound.org)\n\n2D NAVMESH: inScope Studios\nhttps://www.youtube.com/watch?v=f6TVEvigbd0\nRandom
-    Things\nhttps://www.youtube.com/watch?v=LnMhJU6RsYU\nLight Pixel 7 Font\nhttp://www.styleseven.com\n\ncrazyfrog249:
-    blop\r\ncabledmess: blip\r\nsomeguy22: 8-bit bounce\r\njeckkech: projectile\r\nNenadsimic:
-    menu selection click\r\nScrampunk: Itemize, OKAY!\r\nMativve:  Electro win\nCooltron:
-    winlevel\nstormwaveaudio: warp\nnegraovictor: camera flash\nUnity Asset Store:
-    bullet_shot\r, Explosion grenade, explosion player\r\n\nCaptive_Portal: Step Step
-    Step\r\nRoccoW: Echiptian Swaggah, Bleeps Galore, Beugel\n\nMade by: Dhannya Mathew,
-    Saatwik Kambadkone, Marco Chu"
+  m_Text: "Credits\n\nhttps://www.youtube.com/watch?v=f6TVEvigbd0 - inScope Studios
+    (2D NAVMESH)\nhttp://www.styleseven.com - Light Pixel 7 (Font)\n\nBG Music\r\nAbundantMusic\r.com\nhttps://www.youtube.com/watch?v=Vu4vyot-pE0
+    - John Pickup (Christmas tune)\r\nhttp://freemusicarchive.org/music/J_Arthur_Keenes/XMAS_Compilation_2010/J_Arthur_Keenes_-_XMAS_Compilation_2010_-_04_The_Day_Before_Boxing_Day_Eve
+    - J. Arthur Keenes\r (The Day Before Boxing Day Eve)\nhttp://freemusicarchive.org/music/The_8bitpeoples/The_8bits_of_Christmas/
+    - The 8bitpeoples (up on the housetop) \r\nhttps://www.youtube.com/watch?v=37H34jVnp60
+    - \rmrAudioAgent (BG Music Pack)\n\r\nSFX\nhttps://www.youtube.com/watch?v=LnMhJU6RsYU
+    - Random Things (Pop)\r\nhttps://www.youtube.com/watch?v=SD4XIYlFD9c - Rap Pack
+    (Ding)\nhttps://www.youtube.com/watch?v=zH7I1EcENUc - Nick Judy (Cartoon Fight)\nhttps://www.youtube.com/watch?v=3RStfqoq-po
+    - Jessica Hertell (Cartoon Zoom Away) \r\nhttps://www.youtube.com/watch?v=VpFK9UlCGyc
+    - CMIUC100 (Trash into Trash Can 02\r)\nhttps://www.youtube.com/watch?v=worclOeTALw
+    - CorrectAndWrong (Correct and wrong)\r\nhttps://www.youtube.com/watch?v=gAA3VFYQyts
+    - nBeats (Conveyor Belt\r)\nhttps://www.youtube.com/watch?v=r5X8qDDMC-o - MediaJF99
+    (Wrong Buzzer\r)\nhttps://www.youtube.com/watch?v=IN2bSkSMMzY - Vladimir Bursh
+    (Wrong answer)\r\nhttps://www.youtube.com/watch?v=d_Xip1tKNQU - Dr Sound Effects
+    (quick buzz\r)\n\nMade by: Dhannya Mathew, Saatwik Kambadkone, Marco Chu"
 --- !u!222 &1882777643
 CanvasRenderer:
   m_ObjectHideFlags: 0

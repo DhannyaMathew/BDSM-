@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour {
 	public GameObject PauseScreen;
 	public static GameManager instance = null;
 	public bool endLevel;
+	public GameObject Fail, Pass;
 
 	void Awake ()
 	{
@@ -55,8 +56,14 @@ public class GameManager : MonoBehaviour {
 	}
 
 	public void winLevel(){
+		Pause();
+		//Pass Stamp
+		Pass.SetActive(true);
 	}
 	public void loseLevel(){
+		Pause();
+		//Fail Stamp
+		Fail.SetActive(true);
 	}
 
 	public void Quit ()
@@ -64,15 +71,15 @@ public class GameManager : MonoBehaviour {
 		Application.Quit ();
 	}
 	void Update () {
-		if (Input.GetKeyDown (KeyCode.Escape) && GamePaused) {
+		if ((Input.GetKeyDown (KeyCode.Escape) && GamePaused) || endLevel) {
 			Quit ();
 		}
 
-		if (Input.GetKeyDown (KeyCode.Escape) && !GamePaused) {
+		if (Input.GetKeyDown (KeyCode.Escape) && !GamePaused && !endLevel) {
 			Pause ();
 		}
 
-		if (Input.GetKeyDown (KeyCode.P)) {
+		if (Input.GetKeyDown (KeyCode.P) && !endLevel) {
 			if (GamePaused == true) {
 				Resume ();
 			} else {
