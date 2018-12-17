@@ -47,13 +47,15 @@ public class Agent : MonoBehaviour
 						myElf.GetComponent<Elf> ().holding = true;
 					}
 
-					if (hit.collider.tag == "WorkStation" || hit.collider.tag == "Trash") { 
+					if (hit.collider.tag == "Boxing" || hit.collider.tag == "Wrapping" || hit.collider.tag == "Recharge" || hit.collider.tag == "Repairs" 
+						|| hit.collider.tag == "Sowing" || hit.collider.tag == "Sleigh" ||hit.collider.tag == "Trash") { 
+						
 						
 						stationSelected = hit.collider.gameObject.GetComponent<WorkStation> ();
 						setNextDestination (stationSelected.workPos);
 
 						if (Toy != null && stationSelected.currElf == null) {
-							if(toySelected.toyStation() == stationSelected.tag){
+							if(toySelected.toyStation() == stationSelected.gameObject.tag){
 								//if (stationSelected.currElf == null) {
 								stationSelected.currElf = myElf.GetComponent<Elf> ();
 							//}

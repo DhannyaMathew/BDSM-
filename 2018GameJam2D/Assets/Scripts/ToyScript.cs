@@ -12,6 +12,7 @@ public class ToyScript : MonoBehaviour {
 	bool boxing;
 	bool wrapping;
 	bool sleigh;
+	bool recharge;
 
 	public bool onHead, pickedUp;
 	public Sprite[] ToyState = new Sprite[5]; //ensure last state is null!!*************
@@ -26,7 +27,9 @@ public class ToyScript : MonoBehaviour {
 	GameObject boxingObject;
 	GameObject wrappingObject;
 	GameObject sleighObject;
+	GameObject rechargeObject;
 
+	Image rechargeImage;
 	Image sowingImage;
 	Image repairsImage;
 	Image boxingImage;
@@ -41,12 +44,14 @@ public class ToyScript : MonoBehaviour {
 
 		sowingObject = GameObject.Find ("SowingImage");
 		repairsObject = GameObject.Find ("RepairsImage");
+		rechargeObject = GameObject.Find ("RechargeImage");
 		boxingObject = GameObject.Find ("BoxingImage");
 		wrappingObject = GameObject.Find ("WrappingImage");
 		sleighObject = GameObject.Find ("SleighImage");
 
 		sowingImage = sowingObject.GetComponent<Image> ();
 		repairsImage = repairsObject.GetComponent<Image> ();
+		rechargeImage = rechargeObject.GetComponent<Image> ();
 		boxingImage = boxingObject.GetComponent<Image> ();
 		wrappingImage = wrappingObject.GetComponent<Image> ();
 		sleighImage = sleighObject.GetComponent<Image> ();
@@ -56,13 +61,29 @@ public class ToyScript : MonoBehaviour {
 		if (this.gameObject.tag == "TeddyBear" || this.gameObject.tag == "Snek" || this.gameObject.tag == "Lion" || this.gameObject.tag == "Socks") {
 			stationQueue.Enqueue ("Sowing");
 			sowing = true;
+			for (int i = 0; i < ToyState.Length-1; i++) {
+				ToyState [i] = ToyState [i + 1]; 
+			}
+			ToyState [5] = null;
 		}
 
 		if (this.gameObject.tag == "RubixCube" || this.gameObject.tag == "Car" || this.gameObject.tag == "Whisk" || this.gameObject.tag == "Drum") {
 			stationQueue.Enqueue ("Repairs");
 			repairs = true;
 		}
-			
+
+		if (this.gameObject.tag == "RubixCube" || this.gameObject.tag == "Drum") {
+			for (int i = 0; i < ToyState.Length-1; i++) {
+				ToyState [i] = ToyState [i + 1]; 
+			}
+			ToyState [5] = null;
+		}
+
+		if (this.gameObject.tag == "Car" || this.gameObject.tag == "Whisk") {
+			stationQueue.Enqueue ("Recharge");
+			recharge = true;
+		}
+
 		stationQueue.Enqueue ("Boxing");
 		boxing = true;
 		stationQueue.Enqueue ("Wrapping");
@@ -148,12 +169,12 @@ public class ToyScript : MonoBehaviour {
 	{
 		int count = 0;
 		int xPos = 0;
-		int yPos = 150;
+		int yPos = 145;
 		if (active) {
 			if (sowing) {
 				sowingImage.enabled = true;
 
-				xPos = -325 + 35 * count;
+				xPos = -320 + 55 * count; //-325 35
 
 				sowingImage.GetComponent<RectTransform> ().anchoredPosition = new Vector3 (xPos, yPos, 0);
 				//Display the sowing image
@@ -165,7 +186,7 @@ public class ToyScript : MonoBehaviour {
 			if (repairs) {
 				repairsImage.enabled = true;
 
-				xPos = -325 + 35 * count;
+				xPos = -320 + 55 * count;
 
 				repairsImage.GetComponent<RectTransform> ().anchoredPosition = new Vector3 (xPos, yPos, 0);
 				//Display the repairs image
@@ -174,10 +195,22 @@ public class ToyScript : MonoBehaviour {
 				repairsImage.enabled = false;
 			}
 
+			if (recharge) {
+				rechargeImage.enabled = true;
+
+				xPos = -320 + 55 * count;
+
+				rechargeImage.GetComponent<RectTransform> ().anchoredPosition = new Vector3 (xPos, yPos, 0);
+				//Display the repairs image
+				count++;
+			} else {
+				rechargeImage.enabled = false;
+			}
+
 			if (boxing) {
 				boxingImage.enabled = true;
 
-				xPos = -325 + 35 * count;
+				xPos = -320 + 55 * count;
 
 				boxingImage.GetComponent<RectTransform> ().anchoredPosition = new Vector3 (xPos, yPos, 0);
 				//Display the boxing image
@@ -189,7 +222,7 @@ public class ToyScript : MonoBehaviour {
 			if (wrapping) {
 				wrappingImage.enabled = true;
 
-				xPos = -325 + 35 * count;
+				xPos = -320 + 55 * count;
 
 				wrappingImage.GetComponent<RectTransform> ().anchoredPosition = new Vector3 (xPos, yPos, 0);
 				//Display the wrapping image
@@ -201,7 +234,7 @@ public class ToyScript : MonoBehaviour {
 			if (sleigh) {
 				sleighImage.enabled = true;
 
-				xPos = -325 + 35 * count;
+				xPos = -320 + 55 * count;
 
 				sleighImage.GetComponent<RectTransform> ().anchoredPosition = new Vector3 (xPos, yPos, 0);
 				//Display the sleigh image

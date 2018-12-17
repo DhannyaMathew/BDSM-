@@ -1,7 +1,10 @@
 To Do:
-Marco, rechaarge station is cool but we'll have to use it as a new work station :) Is it possible for you to make a Repair station with spanners and shit?
+Marco, recharge station is cool but we'll have to use it as a new work station :) Is it possible for you to make a Repair station with spanners and shit?
++Conveyor belt needs to be doubled (horizontally)
 
-PLAYTEST IF GAME ACTUALLY WORKS
+NEED STAGES FOR SPRITES OF TOYS
+
+PLAYTEST IF GAME ACTUALLY WORKS (Do at midnight all together)
 
 Pass/Fail Stamp for win/lose round (on pause screen over images of toys)
 
@@ -9,10 +12,10 @@ Music
 
 Implementing all Images into game
 
-Also, Menu needs all functionality added! currently just UI
+Menu needs to look pretty
 
 BackGround Images
 
 Small UI Icons
 
-EndScreen Image plsu THANK YOU FOR PLAYING OUT DEMO
+EndScreen Image THANK YOU FOR PLAYING OUT DEMO
