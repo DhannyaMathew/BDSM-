@@ -64,7 +64,7 @@ public class ToyScript : MonoBehaviour {
 			for (int i = 0; i < ToyState.Length-1; i++) {
 				ToyState [i] = ToyState [i + 1]; 
 			}
-			ToyState [5] = null;
+			ToyState [4] = null;
 		}
 
 		if (this.gameObject.tag == "RubixCube" || this.gameObject.tag == "Car" || this.gameObject.tag == "Whisk" || this.gameObject.tag == "Drum") {
@@ -76,7 +76,7 @@ public class ToyScript : MonoBehaviour {
 			for (int i = 0; i < ToyState.Length-1; i++) {
 				ToyState [i] = ToyState [i + 1]; 
 			}
-			ToyState [5] = null;
+			ToyState [4] = null;
 		}
 
 		if (this.gameObject.tag == "Car" || this.gameObject.tag == "Whisk") {
