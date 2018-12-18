@@ -59,9 +59,9 @@ public class Elf : MonoBehaviour
 		playerAnim.SetBool ("Working", working);
 		playerAnim.SetBool ("Holding", holding);
 
-		if (Horizontal < 0) {
+		if (Horizontal > 0) {
 			TurnLeft ();
-		} else if (Horizontal > 0) {
+		} else if (Horizontal < 0) {
 			TurnRight ();
 		}
 

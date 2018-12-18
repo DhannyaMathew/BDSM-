@@ -39,6 +39,7 @@ public class Agent : MonoBehaviour
 					if ((hit.collider.tag == "TeddyBear" || hit.collider.tag == "Snek" || hit.collider.tag == "Lion" || hit.collider.tag == "Socks" || hit.collider.tag
 						== "RubixCube" || hit.collider.tag == "Car" || hit.collider.tag == "Whisk" || hit.collider.tag == "Drum") && Toy == null) {
 						Toy = hit.collider.gameObject;
+						Toy.GetComponent<BoxCollider> ().enabled = false;
 						Toy.GetComponentInParent<Transform> ().DetachChildren(); //NEED TO TEST THIS BAD BOI FOR CONVEYOR BELT SCRIPT
 						toySelected = Toy.GetComponent<ToyScript> ();
 						setNextDestination (toySelected.toyWalkPos);

@@ -13,7 +13,7 @@ public class ConveyorBelt : MonoBehaviour {
 	private Vector2 offSet;
 	public float Xvel,Yvel;
 	public AudioClip ConveyorMove;
-
+	bool EnumCalled;
 	// Use this for initialization
 	void Start () {
 		Belt = GetComponent<Renderer> ().material;
@@ -28,8 +28,8 @@ public class ConveyorBelt : MonoBehaviour {
 	}
 
 	IEnumerator moveBelt(){
-		while (true) {
-			if (moveToy != -1) {
+		
+			//if (moveToy != -1) {
 				this.GetComponent<AudioSource>().clip = ConveyorMove;
 				this.GetComponent<AudioSource> ().Play ();
 
@@ -51,9 +51,9 @@ public class ConveyorBelt : MonoBehaviour {
 				offSet = new Vector2 (0, 0);
 				moveToy = -1;
 				this.GetComponent<AudioSource> ().Stop();
-			}
+			//}
 			Belt.mainTextureOffset += offSet * Time.deltaTime;
-		}
+
 	}
 	// Update is called once per frame
 	void Update () {
@@ -64,6 +64,9 @@ public class ConveyorBelt : MonoBehaviour {
 					moveToy = i;
 
 				}
+			}
+			if (moveToy != -1) {
+				StartCoroutine ("moveBelt");
 			}
 		}
 	}
