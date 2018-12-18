@@ -66,7 +66,7 @@ public class DailyClock : MonoBehaviour {
 
 	public void DecTime(float value){
 
-		CurrTime -= 0.2f;
+		CurrTime -= value;
 		SetTime ();
 		if (CurrTime <= 0) {
 			EndLevel ();
@@ -103,7 +103,7 @@ public class DailyClock : MonoBehaviour {
 
 	void Update () {
 		if (!endLevel && !GameManager.instance.GamePaused) {
-			DecTime (0.005f);
+			DecTime ( 0.2f);
 		}
 
 		if (GameManager.instance.PauseScreen.activeInHierarchy) {

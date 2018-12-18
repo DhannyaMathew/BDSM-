@@ -536,7 +536,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 6f6885c2fe1f63145a830615301d1cfe, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 91be5a541dc96ce4194c73c3984d50f8, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.5
   m_Pitch: 1
@@ -1258,7 +1258,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 166891055}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.43, y: -2, z: -1.91}
+  m_LocalPosition: {x: 5.6, y: -2, z: -2.15}
   m_LocalScale: {x: 3.13862, y: 1, z: 1.6356}
   m_Children:
   - {fileID: 129692567}
@@ -1299,7 +1299,7 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
-  m_Extents: {x: 0.245, y: 0.2, z: 0.66}
+  m_Extents: {x: 0.245, y: 0.2, z: 0.49}
   m_MoveThreshold: 0.1
   m_Carve: 1
   m_CarveOnlyStationary: 1
@@ -1315,7 +1315,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.49, y: 0.4, z: 1.32}
+  m_Size: {x: 0.49, y: 0.4, z: 0.98}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &166891060
 MeshRenderer:
@@ -2059,7 +2059,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 291244230}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.57, y: -2, z: -2.04}
+  m_LocalPosition: {x: -3.75, y: -2, z: -2.13}
   m_LocalScale: {x: 3.13862, y: 1, z: 1.6356}
   m_Children:
   - {fileID: 1391961096}
@@ -2100,7 +2100,7 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
-  m_Extents: {x: 0.245, y: 0.2, z: 0.66}
+  m_Extents: {x: 0.2, y: 0.2, z: 0.595}
   m_MoveThreshold: 0.1
   m_Carve: 1
   m_CarveOnlyStationary: 1
@@ -2116,7 +2116,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.49, y: 0.4, z: 1.32}
+  m_Size: {x: 0.4, y: 0.4, z: 1.19}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &291244235
 MeshRenderer:
@@ -10207,7 +10207,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1910956155}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.62, y: -2, z: -1.2}
+  m_LocalPosition: {x: -8.14, y: -2, z: -1.33}
   m_LocalScale: {x: 3.13862, y: 1, z: 1.6356}
   m_Children:
   - {fileID: 450908043}
@@ -10413,7 +10413,7 @@ MonoBehaviour:
   Pass: {fileID: 1209179491}
   pass: {fileID: 8300000, guid: 7c12412ab34bf704c8160220cf40bfb6, type: 3}
   fail: {fileID: 8300000, guid: 7e1c231b3b79e3441aa55a50092f6222, type: 3}
-  BG: {fileID: 8300000, guid: 6f6885c2fe1f63145a830615301d1cfe, type: 3}
+  BG: {fileID: 8300000, guid: 91be5a541dc96ce4194c73c3984d50f8, type: 3}
   pop: {fileID: 8300000, guid: 4fe07b6aa3da6654aa49940b825451ca, type: 3}
 --- !u!4 &1937930723
 Transform:
@@ -10573,7 +10573,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1949150648}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.56, y: -2, z: 0.71}
+  m_LocalPosition: {x: -2.23, y: -2, z: 0.86}
   m_LocalScale: {x: 3.13862, y: 1, z: 1.6356}
   m_Children:
   - {fileID: 458427915}

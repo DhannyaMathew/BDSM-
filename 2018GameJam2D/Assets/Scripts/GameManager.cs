@@ -83,7 +83,7 @@ public class GameManager : MonoBehaviour {
 
 			if (Physics.Raycast (ray, out hit)) {
 				if (hit.collider.tag == "Bubble") { //if select ground, set new destination
-					DailyClock.instance.DecTime (-100f);
+					DailyClock.instance.DecTime (-200f);
 					SoundController.instance.Playone (pop);
 					Destroy (hit.collider.transform.parent.gameObject);
 				}
