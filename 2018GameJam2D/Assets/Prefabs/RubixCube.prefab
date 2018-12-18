@@ -99,8 +99,8 @@ MonoBehaviour:
   ToyState:
   - {fileID: 21300000, guid: 546768e1039b1e14d9d7270a718e9e33, type: 3}
   - {fileID: 21300000, guid: 546768e1039b1e14d9d7270a718e9e33, type: 3}
-  - {fileID: 21300000, guid: 12088ca4405629c4e821203bf6784d8e, type: 3}
   - {fileID: 21300002, guid: 12088ca4405629c4e821203bf6784d8e, type: 3}
+  - {fileID: 21300000, guid: 12088ca4405629c4e821203bf6784d8e, type: 3}
   - {fileID: 0}
   toyHeadPos: {fileID: 0}
   toyWalkPos: {x: 0, y: 0, z: 0}

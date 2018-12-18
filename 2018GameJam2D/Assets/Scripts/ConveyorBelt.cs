@@ -25,36 +25,46 @@ public class ConveyorBelt : MonoBehaviour {
 		}
 	}
 
+
 	IEnumerator moveBelt(){
 		
-			//if (moveToy != -1) {
+			if (moveToy != -1) {
 				this.GetComponent<AudioSource>().clip = ConveyorMove;
 				this.GetComponent<AudioSource> ().Play ();
 
-				offSet = new Vector2 (Xvel, Yvel);
-				for (int j = 0; j <= moveToy; j++) {
+				offSet = new Vector2 (Xvel*0.2f, Yvel);
+				
+				for (int j = 0; j <= moveToy; j++) { //2
 					
-					if (ToyPos [j].childCount != 0) {
-						Destroy (ToyPos [0].GetComponentInChildren<GameObject> ());
+					if (ToyPos [0].childCount != 0) {
+					GameObject toyChild= ToyPos [0].GetChild (0).gameObject;
+						Destroy (toyChild);
 					}
 					for (int k = 0; k < ToyPos.Length-1; k++) {
-						ToyPos [k+1].GetComponentInChildren<Transform> ().SetParent (ToyPos [k]);
-						//ToyPos [k].DetachChildren();
-						ToyPos [k].GetComponentInChildren<Transform> ().position = ToyPos [k].position;
+					if (ToyPos [k+1].childCount != 0) {
+						//Debug.Log (ToyPos [k + 1].GetChild (0).tag);
+						ToyPos [k + 1].GetChild (0).transform.position = ToyPos [k].position;
+						ToyPos [k + 1].GetChild (0).GetComponent<ToyScript> ().toyWalkPos = ToyPos [k + 1].GetChild (0).transform.position;
+						ToyPos [k + 1].GetChild (0).transform.parent = ToyPos [k];
+
+						//ToyPos[k].GetChild(0).transform.position =  ToyPos[k].position;
+
+					} 
 					}
 					randomToy = Random.Range (0, ToyPos.Length - 1);
-					Instantiate (Toys [randomToy], ToyPos [ToyPos.Length - 1].position, Quaternion.identity, ToyPos [ToyPos.Length - 1]);
+				Instantiate (Toys [randomToy], ToyPos [ToyPos.Length - 1].position, ToyPos[ToyPos.Length - 1].rotation, ToyPos [ToyPos.Length - 1]);
 					yield return new WaitForSeconds (conveyorSpeed);
 				}
 				offSet = new Vector2 (0, 0);
 				moveToy = -1;
 				this.GetComponent<AudioSource> ().Stop();
-			//}
-			Belt.mainTextureOffset += offSet * Time.deltaTime;
+			}
+			//Belt.mainTextureOffset += offSet * Time.deltaTime;
 
 	}
 	// Update is called once per frame
 	void Update () {
+		Belt.mainTextureOffset += offSet * Time.deltaTime;
 		if (moveToy == -1) {
 			for (int i = 0; i < ToyPos.Length; i++) {
 				//ToyFilled [i] = i + 1;

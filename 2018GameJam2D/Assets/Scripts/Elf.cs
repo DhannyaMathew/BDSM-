@@ -11,17 +11,17 @@ public class Elf : MonoBehaviour
 	public float ZOffset;
 	//recall sprites pivot is at the bottom
 	public NavMeshAgent myAgent;
-	public KeyCode pull, turn;
+
 	private Rigidbody2D Player;
 	private bool left, right;
-	public AudioClip PickUpBox, TurnBox;
+
 	private bool AlreadyPlayed;
 	private Animator playerAnim;
 	private bool moving, pushing;
 	private Queue<Vector3> destinationQueue;
 	//Queue with all the destinations
 	private Vector3 currentDestination;
-	private bool starting;
+	public bool starting;
 	public bool working;
 	public bool holding;
 	//Used in the case of the first movement
@@ -85,7 +85,7 @@ public class Elf : MonoBehaviour
 		this.GetComponent<AudioSource> ().Play ();
 	}
 
-	public void StopWorkingSFX(){//***********************for animations trigger
+	public void StopWorkingSFX(){
 		this.GetComponent<AudioSource> ().Stop ();
 	}
 
@@ -128,7 +128,7 @@ public class Elf : MonoBehaviour
 	}
 	public float getCurrentDestination(){
 		return Vector3.Distance (transform.position, currentDestination);
-		}
+	}
 	//Make a delay thing ye boi
 
 

@@ -10,7 +10,9 @@ public class TimeBoosterPU : MonoBehaviour {
 		Clock = GameObject.FindObjectOfType<DailyClock> ();
 	}
 	void OnDestroy () {
-		SoundController.instance.Playone (pop);
+		GetComponent<AudioSource> ().clip = pop;
+		GetComponent<AudioSource> ().Play ();
+
 	}
 	
 	// Update is called once per frame

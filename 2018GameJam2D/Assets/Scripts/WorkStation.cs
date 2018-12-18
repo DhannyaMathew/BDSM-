@@ -21,7 +21,8 @@ public class WorkStation : MonoBehaviour {
 	void Start () {
 		CurrTime = MaxTime;
 		SetTime ();
-		workPos = transform.GetComponentInChildren<Transform> ().position;
+		workPos = transform.GetChild (0).transform.position;
+		//workPos = transform.GetComponentInChildren<Transform> ().position;
 	}
 
 	void SetTime(){
@@ -51,8 +52,8 @@ public class WorkStation : MonoBehaviour {
 		
 		isWorking = false;
 		currElf.working = false;
-
-		currElf.dequeueDestination();
+		currElf.starting = true;
+		//currElf.dequeueDestination();
 
 		if (this.gameObject.tag != "Trash") {
 			Toy.dequeueStation ();
@@ -63,7 +64,8 @@ public class WorkStation : MonoBehaviour {
 		}
 
 
-		if (currElf.destinationCount() <= 0){
+		if (Toy.destCount() <= 0){
+			
 			deleteToy (); //SFX 2
 			for (int i = 0; i < DailyClock.instance.toyTags.Length; i++){ 
 				if (this.gameObject.tag == DailyClock.instance.toyTags[i]) {
@@ -92,8 +94,8 @@ public class WorkStation : MonoBehaviour {
 
 	void Update () {
 		if (currElf != null) {
-			Debug.Log (currElf.getCurrentDestination ());
-			if (currElf.getCurrentDestination() < 1.9f) {//Vector3.Distance (currElf.GetComponent<Transform>().position, workPos) < 1.9f && == workPos
+			//Debug.Log (currElf.getCurrentDestination());
+			if (Vector3.Distance (currElf.GetComponent<Transform>().position, workPos) < 1.9f) {//currElf.getCurrentDestination() == workPos
 				isWorking = true;
 				Toy.onHead = false;
 				currElf.working = true;

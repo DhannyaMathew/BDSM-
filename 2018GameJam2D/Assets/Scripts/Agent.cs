@@ -40,12 +40,13 @@ public class Agent : MonoBehaviour
 						== "RubixCube" || hit.collider.tag == "Car" || hit.collider.tag == "Whisk" || hit.collider.tag == "Drum" || hit.collider.tag == "Coal") && Toy == null) {
 						Toy = hit.collider.gameObject;
 						Toy.GetComponent<BoxCollider> ().enabled = false;
-						Destroy(Toy.GetComponent<Transform>().GetChild(0).gameObject);
-						Toy.transform.parent = null;
+
 						//Toy.GetComponentInParent<Transform> ().DetachChildren(); //NEED TO TEST THIS BAD BOI FOR CONVEYOR BELT SCRIPT
 
 						toySelected = Toy.GetComponent<ToyScript> ();
 						setNextDestination (toySelected.toyWalkPos);
+
+
 						toySelected.toyHeadPos = myElf.GetComponent<Elf>().toySpriteHolder;
 						toySelected.currElf = myElf.GetComponent<Elf> ();
 
@@ -59,12 +60,14 @@ public class Agent : MonoBehaviour
 						setNextDestination (stationSelected.workPos);
 
 						if (Toy != null && stationSelected.currElf == null) {
-							if (toySelected.toyStation () == stationSelected.gameObject.tag) {
+							if (toySelected.toyStation () == stationSelected.gameObject.tag || stationSelected.gameObject.tag == "Trash") {
 								//if (stationSelected.currElf == null) {
 								stationSelected.currElf = myElf.GetComponent<Elf> ();
 								//}
 								stationSelected.Toy = toySelected; 
 
+							} else {
+								SoundController.instance.Playone (wrongStation);
 							}
 						} else {
 							SoundController.instance.Playone (wrongStation);
