@@ -9489,7 +9489,7 @@ MonoBehaviour:
   Resume: {fileID: 1030675646}
   Ticking: {fileID: 8300000, guid: f5c0c322eeafb8b4fb879dcd77a4313e, type: 3}
   Ring: {fileID: 8300000, guid: d1e254fb2e376e64fb6fb271f78922be, type: 3}
-  MaxTime: 2000
+  MaxTime: 3000
   TimeSlider: {fileID: 400494686}
   FillImage: {fileID: 897817012}
   FullTimeColour: {r: 0.47589064, g: 1, b: 0, a: 1}
