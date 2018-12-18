@@ -92,7 +92,8 @@ public class WorkStation : MonoBehaviour {
 
 	void Update () {
 		if (currElf != null) {
-			if (currElf.getCurrentDestination() == workPos) {//Vector3.Distance (currElf.GetComponent<Transform>().position, workPos) < 1.9f && 
+			Debug.Log (currElf.getCurrentDestination ());
+			if (currElf.getCurrentDestination() < 1.9f) {//Vector3.Distance (currElf.GetComponent<Transform>().position, workPos) < 1.9f && == workPos
 				isWorking = true;
 				Toy.onHead = false;
 				currElf.working = true;

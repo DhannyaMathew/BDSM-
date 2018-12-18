@@ -13,7 +13,7 @@ public class ConveyorBelt : MonoBehaviour {
 	private Vector2 offSet;
 	public float Xvel,Yvel;
 	public AudioClip ConveyorMove;
-	bool EnumCalled;
+
 	// Use this for initialization
 	void Start () {
 		Belt = GetComponent<Renderer> ().material;
@@ -21,10 +21,8 @@ public class ConveyorBelt : MonoBehaviour {
 		for (int i = 0; i < ToyPos.Length; i++) {
 			//ToyFilled [i] = i + 1;
 			randomToy = Random.Range (0, ToyPos.Length - 1);
-			Instantiate (Toys [randomToy], ToyPos [i].position, Quaternion.identity, ToyPos [i]);
+			Instantiate (Toys [randomToy], ToyPos [i].position, ToyPos[i].rotation, ToyPos [i]);
 		}
-		StartCoroutine ("moveBelt");
-
 	}
 
 	IEnumerator moveBelt(){

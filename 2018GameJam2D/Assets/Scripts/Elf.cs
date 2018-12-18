@@ -126,8 +126,8 @@ public class Elf : MonoBehaviour
 	public int destinationCount(){
 		return destinationQueue.Count;
 	}
-	public Vector3 getCurrentDestination(){
-		return currentDestination;
+	public float getCurrentDestination(){
+		return Vector3.Distance (transform.position, currentDestination);
 		}
 	//Make a delay thing ye boi
 

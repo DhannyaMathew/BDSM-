@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour {
 	public bool endLevel;
 	public GameObject Fail, Pass;
 	public AudioClip pass,fail;
-
+	public AudioClip BG;
 	void Awake ()
 	{
 		if (instance == null) {
@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour {
 
 	void Start () {
 		FadeEffect.instance.FadeOut (0.5f);
+		SoundController.instance.PlayBG (BG);
 	}
 	
 	void Pause ()

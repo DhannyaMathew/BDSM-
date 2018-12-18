@@ -94,6 +94,8 @@ public class ToyScript : MonoBehaviour {
 		if (this.gameObject.tag == "Coal") {
 			stationQueue.Clear ();
 			stationQueue.Enqueue ("Sleigh");
+			boxing = false;
+			wrapping = false;
 		}
 
 	}
@@ -105,10 +107,12 @@ public class ToyScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (currElf != null) {
-			if (currElf.getCurrentDestination() == toyWalkPos && !pickedUp) {//Vector3.Distance (currElf.GetComponent<Transform>().position, workPos) < 1.9f && 
+			
+			if (currElf.getCurrentDestination() < 0.6f && !pickedUp) {//Vector3.Distance (currElf.GetComponent<Transform>().position, workPos) < 1.9f && == toyWalkPos
 				onHead = true;
 				pickedUp = true;
-				Destroy(this.transform.GetChild(0).gameObject);
+				currElf.holding = true;
+				//Destroy(this.transform.GetChild(0).gameObject);
 
 			}
 		}
