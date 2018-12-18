@@ -23,7 +23,6 @@ public class DailyClock : MonoBehaviour {
 	public Image FillImage;
 	public Color FullTimeColour = Color.green;
 	public Color LowTimeColour = Color.red;
-	public AudioClip TimeDone;
 	public GameObject TimeBooster;
 	private float randomBoostVal;
 	public Transform BottomLine;
@@ -47,7 +46,7 @@ public class DailyClock : MonoBehaviour {
 		endLevel = false;
 
 		for (int i = 0; i < toyCountGoal.Length; i++) {
-			GoalVal = Random.Range (1 * SceneManager.GetActiveScene ().buildIndex - 1, Mathf.CeilToInt(2.5f * SceneManager.GetActiveScene ().buildIndex));
+			GoalVal = Random.Range (1 * SceneManager.GetActiveScene ().buildIndex - 1, Mathf.FloorToInt(2.5f * SceneManager.GetActiveScene ().buildIndex));
 			toyCountGoal [i] = GoalVal;
 		}
 
@@ -76,28 +75,32 @@ public class DailyClock : MonoBehaviour {
 
 	void EndLevel(){
 		//end screen with pass of fail = add a panel to block player from being able to keep playing
-		SoundController.instance.Playone(Ring);
+
 		SoundController.instance.Ticking.Stop();
+		SoundController.instance.Ticking.loop = false;
+		SoundController.instance.Ticking.clip = Ring;
+		SoundController.instance.Ticking.Play();
+
 		endLevel = true;
 		GameManager.instance.endLevel = true;
 
 		for (int i = 0; i < toyCount.Length; i++) {
 			if (toyCount [i] < toyCountGoal[i]) {
 				GameManager.instance.loseLevel ();
-				goto end;
+				Next.SetActive (false);
+				Resume.SetActive (false);
+				break;
 			}
 			GameManager.instance.winLevel ();
 			Next.SetActive (true);
 			Resume.SetActive (false);
 		}
 
-		end: 
-		Next.SetActive (false);
-		Resume.SetActive (false);
+
 	}
 
 	void Update () {
-		if (!endLevel) {
+		if (!endLevel && !GameManager.instance.GamePaused) {
 			DecTime (0.005f);
 		}
 

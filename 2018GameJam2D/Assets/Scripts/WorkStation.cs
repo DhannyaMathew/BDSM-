@@ -65,13 +65,13 @@ public class WorkStation : MonoBehaviour {
 
 
 		if (Toy.destCount() <= 0){
-			
-			deleteToy (); //SFX 2
+
 			for (int i = 0; i < DailyClock.instance.toyTags.Length; i++){ 
-				if (this.gameObject.tag == DailyClock.instance.toyTags[i]) {
+				if (Toy.gameObject.tag == DailyClock.instance.toyTags[i]) {
 					DailyClock.instance.toyCount [i]++;
 				}
 			}
+			deleteToy (); //SFX 2
 		}
 
 		if (this.gameObject.tag == "Trash"){
@@ -102,7 +102,7 @@ public class WorkStation : MonoBehaviour {
 				currElf.holding = false;
 			}
 		}
-		if (isWorking){
+		if (isWorking && !GameManager.instance.GamePaused){
 		DecTime (0.2f);
 		}
 	}

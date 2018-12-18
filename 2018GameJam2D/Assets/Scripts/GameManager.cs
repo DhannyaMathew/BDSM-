@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
-	private bool GamePaused;
+	public bool GamePaused;
 	public GameObject PauseScreen;
 	public static GameManager instance = null;
 	public bool endLevel;

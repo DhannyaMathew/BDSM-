@@ -2993,7 +2993,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -5514,7 +5514,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -10057,6 +10057,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27ec23b2ac2438343b8b5622f086fd5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GamePaused: 0
   PauseScreen: {fileID: 605304032}
   endLevel: 0
   Fail: {fileID: 1483379726}
@@ -10119,9 +10120,8 @@ MonoBehaviour:
   FillImage: {fileID: 897817012}
   FullTimeColour: {r: 0.47589064, g: 1, b: 0, a: 1}
   LowTimeColour: {r: 1, g: 0.2441684, b: 0.13679248, a: 1}
-  TimeDone: {fileID: 0}
-  TimeBooster: {fileID: 0}
-  BottomLine: {fileID: 0}
+  TimeBooster: {fileID: 1736965655}
+  BottomLine: {fileID: 1424660240}
 --- !u!1 &1949743377
 GameObject:
   m_ObjectHideFlags: 0

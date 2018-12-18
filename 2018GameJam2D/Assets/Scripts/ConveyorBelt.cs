@@ -20,7 +20,7 @@ public class ConveyorBelt : MonoBehaviour {
 		//ToyFilled = new int[ToyPos.Length];
 		for (int i = 0; i < ToyPos.Length; i++) {
 			//ToyFilled [i] = i + 1;
-			randomToy = Random.Range (0, ToyPos.Length - 1);
+			randomToy = Random.Range (0, Toys.Length - 1);
 			Instantiate (Toys [randomToy], ToyPos [i].position, ToyPos[i].rotation, ToyPos [i]);
 		}
 	}
@@ -51,7 +51,7 @@ public class ConveyorBelt : MonoBehaviour {
 
 					} 
 					}
-					randomToy = Random.Range (0, ToyPos.Length - 1);
+					randomToy = Random.Range (0, Toys.Length - 1);
 				Instantiate (Toys [randomToy], ToyPos [ToyPos.Length - 1].position, ToyPos[ToyPos.Length - 1].rotation, ToyPos [ToyPos.Length - 1]);
 					yield return new WaitForSeconds (conveyorSpeed);
 				}

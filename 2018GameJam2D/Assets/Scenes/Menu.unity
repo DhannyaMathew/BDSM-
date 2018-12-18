@@ -1830,7 +1830,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: "Use the LMB to move\n\nClick on an Elf, \nselect a Toy and \nfollow the
     To-Do list on the top left corner of the screen \nby clicking on the corresponding
-    Work Stations\n"
+    Work Stations\n\nPress P to find the goals for the day :)"
 --- !u!222 &1115829382
 CanvasRenderer:
   m_ObjectHideFlags: 0
