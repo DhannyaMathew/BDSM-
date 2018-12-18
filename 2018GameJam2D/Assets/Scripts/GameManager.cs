@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour {
 	public GameObject Fail, Pass;
 	public AudioClip pass,fail;
 	public AudioClip BG;
+	public AudioClip pop;
+
 	void Awake ()
 	{
 		if (instance == null) {
@@ -75,6 +77,18 @@ public class GameManager : MonoBehaviour {
 		Application.Quit ();
 	}
 	void Update () {
+		if (Input.GetMouseButtonDown (0) && !endLevel && !GamePaused) {
+			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
+			RaycastHit hit;
+
+			if (Physics.Raycast (ray, out hit)) {
+				if (hit.collider.tag == "Bubble") { //if select ground, set new destination
+					DailyClock.instance.DecTime (-100f);
+					SoundController.instance.Playone (pop);
+					Destroy (hit.collider.transform.parent.gameObject);
+				}
+			}
+		}
 		if ((Input.GetKeyDown (KeyCode.Escape) && GamePaused) || endLevel) {
 			Quit ();
 		}

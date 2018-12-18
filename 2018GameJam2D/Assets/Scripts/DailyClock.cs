@@ -24,9 +24,9 @@ public class DailyClock : MonoBehaviour {
 	public Color FullTimeColour = Color.green;
 	public Color LowTimeColour = Color.red;
 	public GameObject TimeBooster;
-	private float randomBoostVal;
+	//private float randomBoostVal;
 	public Transform BottomLine;
-	private bool isSpawning, endLevel;
+	private bool endLevel;
 
 	public static DailyClock instance = null;
 
@@ -42,13 +42,14 @@ public class DailyClock : MonoBehaviour {
 	void Start () {
 		SoundController.instance.PlayTick (Ticking);
 		CurrTime = MaxTime;
-		isSpawning = false;
+
 		endLevel = false;
 
 		for (int i = 0; i < toyCountGoal.Length; i++) {
 			GoalVal = Random.Range (1 * SceneManager.GetActiveScene ().buildIndex - 1, Mathf.FloorToInt(2.5f * SceneManager.GetActiveScene ().buildIndex));
 			toyCountGoal [i] = GoalVal;
 		}
+		Invoke ("InvokeSpawn",Random.Range(0,CurrTime/50f));
 
 	}
 
@@ -99,6 +100,7 @@ public class DailyClock : MonoBehaviour {
 
 	}
 
+
 	void Update () {
 		if (!endLevel && !GameManager.instance.GamePaused) {
 			DecTime (0.005f);
@@ -110,16 +112,21 @@ public class DailyClock : MonoBehaviour {
 			}
 		}
 
-		if (!isSpawning) {
-			randomBoostVal = Random.Range (CurrTime,CurrTime-30f);
+		/*if (!isSpawning) {
+			
 			if (randomBoostVal > 0f) {
+				
 				Invoke ("SpawnBoost", randomBoostVal);
 				isSpawning = true;
 			}
-		}
+		}*/
 	}
-	void SpawnBoost(){
-		Instantiate (TimeBooster, new Vector3(Random.Range(BottomLine.position.x-(BottomLine.localScale.x/2f),BottomLine.position.x+(BottomLine.localScale.x/2f)),BottomLine.position.y,BottomLine.position.z), Quaternion.identity, BottomLine);
-		isSpawning = false;
+	void InvokeSpawn(){
+		//Debug.Log ("henlo");
+		if (!GameManager.instance.GamePaused || !endLevel){
+		Instantiate (TimeBooster, new Vector3(Random.Range(BottomLine.position.x-(BottomLine.localScale.x/2f),BottomLine.position.x+(BottomLine.localScale.x/2f)),BottomLine.position.y,BottomLine.position.z), Quaternion.identity);
+		//isSpawning = false;
+			Invoke ("InvokeSpawn",Random.Range(0,CurrTime/50f));
+		}
 	}
 }

@@ -23,6 +23,7 @@ TagManager:
   - Wrapping
   - Repairs
   - Sowing
+  - Bubble
   layers:
   - Default
   - TransparentFX
